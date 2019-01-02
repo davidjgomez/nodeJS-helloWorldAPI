@@ -1,6 +1,5 @@
 /* 
  * Hello World API
- *
  */
 
 // Dependencies
@@ -16,7 +15,10 @@ const server = http.createServer((req, res) => {
     // Get the trimmed path
     const trimmedPath = parsedUrl.pathname.replace(/^\/+|\/+$/g, '')
 
+    // Does not process any sent data
     req.on('data', () => {})
+
+    // Process the request based on the route
     req.on('end', () => {
         
         // Choose the handler this request should go to. If one is not found, use the Not Found handler
@@ -50,7 +52,7 @@ server.listen(3000, () => console.log('The server is listening on port 3000'))
 // Define the handlers
 const handlers = {}
 
-// Ping handler
+// Hello handler
 handlers.hello = (callback) => {
     callback(200, { 'message' : 'Hello! Thanks for saying hi!' })
 }

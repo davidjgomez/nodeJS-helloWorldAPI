@@ -53,16 +53,10 @@ server.listen(3000, () => console.log('The server is listening on port 3000'))
 const handlers = {}
 
 // Hello handler
-handlers.hello = (callback) => {
-    callback(200, { 'message' : 'Hello! Thanks for saying hi!' })
-}
+handlers.hello = callback => callback(200, { 'message' : 'Hello! Thanks for saying hi!' })
 
 // Not Found handler
-handlers.notFound = (callback) => {
-    callback(404, { 'message' : 'Don\'t be so impolite next time and say hello first!' })
-}
+handlers.notFound = callback => callback(404, { 'message' : 'Don\'t be so impolite next time and say hello first!' })
 
 // Define a request router
-const router = {
-    'hello' : handlers.hello
-}
+const router = { 'hello' : handlers.hello }
